@@ -1,14 +1,14 @@
-const express = require("express");
+const express = require("express"); // express 불러오기
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); // mongoose 불러오기
 const Todo = require("./models/todo");  // Todo 모델 가져오기
 
-mongoose.connect("mongodb://localhost/todo-demo", {
+mongoose.connect("mongodb://localhost/todo-demo", { // DB 에 연결하기
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
+db.on("error", console.error.bind(console, "connection error:")); // DB 연결되지 않았을 때 경고 메세지 설정
 
 const app = express();
 const router = express.Router();
